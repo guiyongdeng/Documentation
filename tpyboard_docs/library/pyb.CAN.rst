@@ -1,15 +1,13 @@
 .. currentmodule:: pyb
 
-class CAN -- controller area network communication bus
+class CAN -- 控制器局域网络通信总线
 ======================================================
 
-CAN implements the standard CAN communications protocol.  At
-the physical level it consists of 2 lines: RX and TX.  Note that
-to connect the pyboard to a CAN bus you must use a CAN transceiver
-to convert the CAN logic signals from the pyboard to the correct
-voltage levels on the bus.
+可实现标准CAN通信协议。在物理层，它包括2条线：RX和TX。
+Note thatto connect the pyboard to a CAN bus you must use a CAN transceiver
+to convert the CAN logic signals from the pyboard to the correct voltage levels on the bus.
 
-Example usage (works without anything connected)::
+示例用法（没有任何连接的工程）::
 
     from pyb import CAN
     can = CAN(1, CAN.LOOPBACK)
@@ -18,7 +16,7 @@ Example usage (works without anything connected)::
     can.recv(0)                 # receive message on FIFO 0
 
 
-Constructors
+构造器
 ------------
 
 .. class:: pyb.CAN(bus, ...)
@@ -29,12 +27,12 @@ Constructors
    the bus, if any).  If extra arguments are given, the bus is initialised.
    See ``init`` for parameters of initialisation.
 
-   The physical pins of the CAN busses are:
+   CAN总线的物理针脚:
 
      - ``CAN(1)`` is on ``YA``: ``(RX, TX) = (Y3, Y4) = (PB8, PB9)``
      - ``CAN(2)`` is on ``YB``: ``(RX, TX) = (Y5, Y6) = (PB12, PB13)``
 
-Class Methods
+类 方法
 -------------
 .. classmethod:: CAN.initfilterbanks(nr)
 
@@ -45,7 +43,7 @@ Class Methods
    that will be assigned to CAN(1), the rest of the 28 are assigned to CAN(2).
    At boot, 14 banks are assigned to each controller.
 
-Methods
+方法
 -------
 
 .. method:: CAN.init(mode, extframe=False, prescaler=100, \*, sjw=1, bs1=6, bs2=8)
